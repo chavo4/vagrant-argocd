@@ -24,6 +24,31 @@ print_warning() {
     echo -e "${YELLOW}[INFO]${NC} $1"
 }
 
+# Function to wait for service
+wait_for_service() {
+    local namespace=$1
+    local service_name=$2
+    local timeout=180  # 3 minutes timeout
+    local interval=10   # 10 seconds interval
+    local elapsed=0
+
+    print_message "Waiting for service ${service_name} in namespace ${namespace}..."
+    
+    while [ $elapsed -lt $timeout ]; do
+        if kubectl get svc -n ${namespace} ${service_name} &>/dev/null; then
+            if kubectl get svc -n ${namespace} ${service_name} -o jsonpath='{.spec.ports[0].nodePort}' &>/dev/null; then
+                print_message "Service ${service_name} is ready"
+                return 0
+            fi
+        fi
+        sleep $interval
+        elapsed=$((elapsed + interval))
+        print_warning "Still waiting for service... ($elapsed seconds elapsed)"
+    done
+    
+    return 1
+}
+
 # Function to create application YAML
 create_application() {
     local name=$1
@@ -40,7 +65,7 @@ spec:
   source:
     repoURL: ${REPO_URL}
     targetRevision: HEAD
-    path: overlays/${path}
+    path: k8s/${path}    # Changed from overlays to k8s
   destination:
     server: https://kubernetes.default.svc
     namespace: tetris-${name}
@@ -71,7 +96,21 @@ apply_application() {
 get_nodeport() {
     local namespace=$1
     local service_name=$2
-    kubectl get svc -n ${namespace} ${service_name} -o jsonpath='{.spec.ports[0].nodePort}'
+    
+    if ! wait_for_service "$namespace" "$service_name"; then
+        print_error "Timeout waiting for service ${service_name}"
+        return 1
+    fi
+    
+    local nodeport
+    nodeport=$(kubectl get svc -n ${namespace} ${service_name} -o jsonpath='{.spec.ports[0].nodePort}')
+    
+    if [ -z "$nodeport" ]; then
+        print_error "Failed to get NodePort for ${service_name}"
+        return 1
+    fi
+    
+    echo "$nodeport"
 }
 
 # Function to get server IP
@@ -97,16 +136,25 @@ main() {
     print_message "\nChecking application status:"
     kubectl get applications -n argocd
 
-    # Wait for services to be created
-    print_message "\nWaiting for services to be ready..."
-    sleep 30
-
     # Get server IP
     SERVER_IP=$(get_server_ip)
+    if [ -z "$SERVER_IP" ]; then
+        print_error "Failed to get server IP"
+        exit 1
+    fi
 
-    # Get NodePorts
-    DEV_PORT=$(get_nodeport "tetris-dev" "dev-tetris")
-    PROD_PORT=$(get_nodeport "tetris-prod" "prod-tetris")
+    # Wait for services to be ready and get NodePorts
+    DEV_PORT=$(get_nodeport "tetris-dev" "tetris-service")  # Changed service name
+    if [ $? -ne 0 ]; then
+        print_error "Failed to get dev service NodePort"
+        exit 1
+    fi
+
+    PROD_PORT=$(get_nodeport "tetris-prod" "tetris-service")  # Changed service name
+    if [ $? -ne 0 ]; then
+        print_error "Failed to get prod service NodePort"
+        exit 1
+    fi
 
     # Display access information
     echo -e "\n${YELLOW}=== Access Information ===${NC}"
