@@ -28,8 +28,8 @@ print_warning() {
 wait_for_service() {
     local namespace=$1
     local service_name=$2
-    local timeout=180  # 3 minutes timeout
-    local interval=10   # 10 seconds interval
+    local timeout=60  # 1 minute timeout
+    local interval=60   # 60 seconds interval
     local elapsed=0
 
     print_message "Waiting for service ${service_name} in namespace ${namespace}..."
@@ -144,13 +144,13 @@ main() {
     fi
 
     # Wait for services to be ready and get NodePorts
-    DEV_PORT=$(get_nodeport "tetris-dev" "tetris-service")  # Changed service name
+    DEV_PORT=$(get_nodeport "tetris-dev" "dev-tetris")
     if [ $? -ne 0 ]; then
         print_error "Failed to get dev service NodePort"
         exit 1
     fi
 
-    PROD_PORT=$(get_nodeport "tetris-prod" "tetris-service")  # Changed service name
+    PROD_PORT=$(get_nodeport "tetris-prod" "prod-tetris")
     if [ $? -ne 0 ]; then
         print_error "Failed to get prod service NodePort"
         exit 1
