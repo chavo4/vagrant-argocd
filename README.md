@@ -6,11 +6,11 @@
 
 ### Lets start
 ##### clone the repo
-
+```
 git clone https://github.com/chavo1/vagrant-argocd.git
 cd vagrant-argocd
 vagrant up
-
+```
 
 ### === Access Information ===
 #### Development Environment:
