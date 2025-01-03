@@ -65,7 +65,7 @@ spec:
   source:
     repoURL: ${REPO_URL}
     targetRevision: HEAD
-    path: overlays/${path}    # Changed from overlays to k8s
+    path: overlays/${path}
   destination:
     server: https://kubernetes.default.svc
     namespace: tetris-${name}
