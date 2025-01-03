@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tetris
+spec:
+  selector:
+    matchLabels:
+      app: tetris
+  template:
+    metadata:
+      labels:
+        app: tetris
+    spec:
+      containers:
+      - name: tetris
+        image: chavo/tetris:latest
+        ports:
+        - containerPort: 3000
