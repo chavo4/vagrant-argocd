@@ -19,7 +19,7 @@ URL: http://192.168.56.11:30001
 URL: http://192.168.56.11:30002
 
 #### ArgoCD Dashboard:
-URL: https://192.168.56.11:8080 ,</br>
+URL: https://192.168.56.11:8080</br>
 Username: admin</br>
 Password: just copy or open "/vagrant/argocd-password.txt"
 
