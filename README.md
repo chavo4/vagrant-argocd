@@ -25,3 +25,4 @@ Password: just copy or open "/vagrant/argocd-password.txt"
 
 [![ArgoCD UI](./screenshots/argcd.png)](http://192.168.56.11:8080)
 [![ArgoCD UI](./screenshots/argocdapps.png)](http://192.168.56.11:8080)
+[![Tetris UI](./screenshots/tetris.png)](http://192.168.56.11:30001)
