@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: tetris-prod
+namePrefix: prod-
+
+resources:
+- ../../base
+
+patches:
+- path: deployment.yaml
+- path: service.yaml
+
+labels:
+- pairs:
+    environment: prod
