@@ -23,6 +23,6 @@ URL: https://192.168.56.11:8080</br>
 Username: admin</br>
 Password: just copy or open "/vagrant/argocd-password.txt"
 
-[![ArgoCD UI](./screenshots/argcd.png)](http://192.168.56.11:8080)
-[![ArgoCD UI](./screenshots/argocdapps.png)](http://192.168.56.11:8080)
-[![Tetris UI](./screenshots/tetris.png)](http://192.168.56.11:30001)
+[![ArgoCD UI](./screenshots/argcd.png)](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+[![ArgoCD UI](./screenshots/argocdapps.png)](https://argo-cd.readthedocs.io/en/stable/getting_started/)
+[![Tetris UI](./screenshots/tetris.png)]
