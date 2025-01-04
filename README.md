@@ -23,7 +23,7 @@ URL: https://192.168.56.11:8080</br>
 Username: admin</br>
 Password: just copy or open "/vagrant/argocd-password.txt"
 
-##### Switch between v1 and v2 of tetris, don't forget "Sync" buton under the ArgoCD->Applications 
+#### Switch between v1 and v2 of tetris, don't forget "Sync" buton under the ArgoCD->Applications 
 ```
 base/deployment.yaml
 ```
