@@ -1,7 +1,7 @@
 # Vagrant<->Argocd POC
 ## Prerequisites
-[Vagrant](https://www.vagrantup.com/)
-[Kubernetes](https://kubernetes.io/docs/setup/)
+[Vagrant](https://www.vagrantup.com/)</br>
+[Kubernetes](https://kubernetes.io/docs/setup/)</br>
 [kubectl configured](https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/)
 
 ### Lets start
