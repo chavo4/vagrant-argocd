@@ -2,7 +2,7 @@
 ## Prerequisites
 [Vagrant](https://www.vagrantup.com/)</br>
 [Kubernetes](https://kubernetes.io/docs/setup/)</br>
-[kubectl configured](https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/)
+[ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/)
 
 ### Lets start
 ##### clone the repo
