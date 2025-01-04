@@ -25,4 +25,4 @@ Password: just copy or open "/vagrant/argocd-password.txt"
 
 [![ArgoCD UI](./screenshots/argcd.png)](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 [![ArgoCD UI](./screenshots/argocdapps.png)](https://argo-cd.readthedocs.io/en/stable/getting_started/)
-[![Tetris UI](./screenshots/tetris.png)]
+[Tetris UI](./screenshots/tetris.png)
