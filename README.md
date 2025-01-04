@@ -23,10 +23,17 @@ URL: https://192.168.56.11:8080</br>
 Username: admin</br>
 Password: just copy or open "/vagrant/argocd-password.txt"
 
-#### Switch between v1 and v2 of the tetris app
+##### Switch between v1 and v2 of the tetris app while use "Sync" buton under the ArgoCD->Application 
 ```
 base/deployment.yaml
 ```
+```
+    spec:
+      containers:
+      - name: tetris
+        image: chavo/tetris:v2 # try by changing to -> chavo/tetris:v1
+```
+
 [![ArgoCD UI](./screenshots/argcd.png)](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 [![ArgoCD UI](./screenshots/argocdapps.png)](https://argo-cd.readthedocs.io/en/stable/getting_started/)
 [![Tetris UI](./screenshots/tetris.png)](https://hub.docker.com/r/chavo/tetris)
