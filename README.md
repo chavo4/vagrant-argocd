@@ -1,4 +1,4 @@
-# Vagrant<->Argocd POC
+# Vagrant<->Argocd playground 
 ## Prerequisites
 [Vagrant](https://www.vagrantup.com/)</br>
 [VirtualBox](https://www.virtualbox.org/)</br>
