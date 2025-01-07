@@ -3,7 +3,7 @@
 [Vagrant](https://www.vagrantup.com/)</br>
 [VirtualBox](https://www.virtualbox.org/)</br>
 Basic [Kubernetes](https://kubernetes.io/docs/setup/) knowledge</br>
-[ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/)
+Basic [ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/) knowledge 
 
 ### Lets start
 ##### clone the repo
