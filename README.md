@@ -1,6 +1,7 @@
 # Vagrant<->Argocd POC
 ## Prerequisites
 [Vagrant](https://www.vagrantup.com/)</br>
+[VirtualBox](https://www.virtualbox.org/)</br>
 [Kubernetes](https://kubernetes.io/docs/setup/)</br>
 [ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/)
 
