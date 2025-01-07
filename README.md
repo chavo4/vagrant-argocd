@@ -2,7 +2,7 @@
 ## Prerequisites
 [Vagrant](https://www.vagrantup.com/)</br>
 [VirtualBox](https://www.virtualbox.org/)</br>
-[Kubernetes](https://kubernetes.io/docs/setup/)</br>
+Basic [Kubernetes](https://kubernetes.io/docs/setup/) knowledge</br>
 [ArgoCD](https://argo-cd.readthedocs.io/en/stable/operator-manual/installation/)
 
 ### Lets start
