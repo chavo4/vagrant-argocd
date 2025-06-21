@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: tetris
-        image: chavo/tetris-arm:v1
+        image: chavo/tetris-arm:latest
         ports:
         - containerPort: 3000
