@@ -1,4 +1,4 @@
-# Vagrant<->Argocd playground 
+# Vagrant<->Argocd playground test
 ## Prerequisites
 [Vagrant](https://www.vagrantup.com/)</br>
 [VirtualBox](https://www.virtualbox.org/)</br>
